@@ -32,7 +32,8 @@ def create_app(test_config=None):
         if actors is None:
             abort(404)
 
-        formatted_actors = [actor.format() for actor in actors]
+        formatted_actors = [actor.format()
+                            for actor in actors]
 
         return jsonify({
             'success': True,
@@ -46,7 +47,8 @@ def create_app(test_config=None):
 
         if movies is None:
             abort(404)
-        formatted_movies = [movie.format() for movie in movies]
+        formatted_movies = [movie.format()
+                            for movie in movies]
 
         return jsonify({
             'success': True,
@@ -84,7 +86,9 @@ def create_app(test_config=None):
         if title == '' or release_date == '':
             abort(422)
 
-        movie = Movie(title=title, release_date=release_date)
+        movie = Movie(
+            title=title,
+            release_date=release_date)
         movie.insert()
 
         return jsonify({
