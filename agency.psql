@@ -1,0 +1,10 @@
+insert into actors values (1,'Bebe', 31, 'female');
+insert into actors values (2,'Farah', 26, 'female');
+insert into actors values (3,'Sarah', 57, 'female');
+insert into actors values (4,'Ali', 33, 'male');
+insert into actors values (5,'Khaled', 24, 'male');
+insert into actors values (6,'Moal', 31, 'male');
+insert into movies values (1,'Harry Potter', 2001);
+insert into movies values (2,'Horror', 2020);
+insert into movies values (3,'Escape', 2020);
+insert into movies values (4,'The Purge', 2013);
