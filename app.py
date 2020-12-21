@@ -24,13 +24,17 @@ def create_app(test_config=None):
             'GET,PUT,POST,DELETE,OPTIONS')
         return response
 
+    @app.route('/')
+    def getInfo():
+        return jsonify({"message": "This is the Casting Agency Project By Farah"})
+
     @app.route('/actors', methods=['GET'])
     @requires_auth('get:actors')
     def get_actors(payload):
         actors = Actor.query.all()
 
         if actors is None:
-            abort(404)
+            abort(400)
 
         formatted_actors = [actor.format()
                             for actor in actors]
@@ -46,7 +50,7 @@ def create_app(test_config=None):
         movies = Movie.query.all()
 
         if movies is None:
-            abort(404)
+            abort(400)
         formatted_movies = [movie.format()
                             for movie in movies]
 
@@ -186,13 +190,21 @@ def create_app(test_config=None):
             'message': 'unprocessable'
         }), 422
 
-    @app.errorhandler(AuthError)
-    def auth_error(err):
+    @app.errorhandler(400)
+    def bad_request(error):
         return jsonify({
-            'success': False,
-            'error': err.status_code,
-            'message': err.error['code']
-        }), err.status_code
+            "success": False,
+            "error": 400,
+            "message": "bad request"
+        }), 400
+
+    @app.errorhandler(AuthError)
+    def auth_error(error):
+        return jsonify({
+            "success": False,
+            "error": error.status_code,
+            "message": error.error['code']
+        }), 403
 
     return app
 
