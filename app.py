@@ -24,9 +24,9 @@ def create_app(test_config=None):
             'GET,PUT,POST,DELETE,OPTIONS')
         return response
 
-    # @app.route('/')
-    # def getInfo():
-    #     return jsonify({"message": "This is the Casting Agency Project By Farah"})
+    @app.route('/')
+    def getInfo():
+        return jsonify({"message": "This is the Casting Agency Project By Farah"})
 
     @app.route('/actors', methods=['GET'])
     @requires_auth('get:actors')
@@ -209,7 +209,7 @@ def create_app(test_config=None):
     return app
 
 
-APP = create_app()
+app = create_app()
 
 if __name__ == '__main__':
-    APP.run(host='127.0.0.1', port=8080, debug=True)
+    app.run(host='127.0.0.1', port=8080, debug=True)
