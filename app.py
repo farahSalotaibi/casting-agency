@@ -26,7 +26,8 @@ def create_app(test_config=None):
 
     @app.route('/')
     def getInfo():
-        return jsonify({"message": "This is the Casting Agency Project By Farah"})
+        return jsonify(
+            {"message": "This is the Casting Agency Project By Farah"})
 
     @app.route('/actors', methods=['GET'])
     @requires_auth('get:actors')
