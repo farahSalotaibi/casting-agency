@@ -10,7 +10,7 @@ There are three roles in this application.
 
 Motivation: This is the final project in Full Stack Nanodegree. In this project I have used all the techniques I learned from this course in creating the casting agency project.
 
-Heroku URL: https://git.heroku.com/castingagencyfarah.git
+Heroku URL: https://castingagencyfarah.herokuapp.com/
 
 ## Getting Started
 
